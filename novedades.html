@@ -1,0 +1,173 @@
+<style>
+    /* Contenedor principal */
+    .news-container { 
+        display: flex; 
+        flex-direction: column; 
+        gap: 15px; 
+        padding-bottom: 10px; 
+    }
+
+    /* Diseño de la Tarjeta: Texto Izquierda, Imagen Derecha */
+    .news-card { 
+        display: flex; 
+        flex-direction: row; 
+        background: rgba(255, 255, 255, 0.05); 
+        border: 1px solid rgba(255, 255, 255, 0.1); 
+        border-radius: 10px; 
+        padding: 15px; 
+        gap: 15px; 
+        align-items: flex-start; /* Alinea el contenido arriba para textos largos */
+        transition: border-color 0.2s ease; 
+    }
+    .news-card:hover { border-color: rgba(59, 130, 246, 0.4); }
+
+    /* Lado Izquierdo: Textos */
+    .news-left { 
+        flex: 1; 
+        display: flex; 
+        flex-direction: column; 
+    }
+    .news-date { font-size: 11px; color: #fbbf24; font-weight: 600; margin-bottom: 5px; text-transform: uppercase; }
+    .news-title { font-size: 14px; color: #ffffff; font-weight: bold; margin-bottom: 10px; }
+    .news-desc { font-size: 12px; color: #cbd5e1; line-height: 1.5; }
+
+    /* Lado Derecho: Contenedor de la Miniatura */
+    .news-right { 
+        position: relative; 
+        width: 140px; 
+        height: 100px; 
+        flex-shrink: 0; 
+        border-radius: 6px; 
+        overflow: hidden; 
+        border: 1px solid rgba(255,255,255,0.1); 
+    }
+    
+    /* Efecto al pasar el ratón sobre el contenedor derecho */
+    .news-right:hover .media-content { transform: scale(1.05); }
+
+    /* La imagen o video principal */
+    .media-content { 
+        width: 100%; 
+        height: 100%; 
+        object-fit: cover; 
+        transition: transform 0.3s ease; 
+        display: block; 
+        cursor: zoom-in; /* Indica que se puede ampliar */
+    }
+
+    /* 🔥 EL TRUCO: Oculta todos los elementos .media-content excepto el primero */
+    .news-right .media-content ~ .media-content { 
+        display: none; 
+    }
+
+    /* Indicador Visual (La etiqueta de Galería) */
+    .gallery-indicator {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        background: rgba(10, 15, 30, 0.85);
+        backdrop-filter: blur(5px);
+        color: #ffffff;
+        font-size: 10px;
+        font-weight: bold;
+        padding: 4px 8px;
+        border-radius: 10px;
+        border: 1px solid rgba(255,255,255,0.2);
+        pointer-events: none; 
+        box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+</style>
+
+<div class="news-container">
+
+    <!-- TARJETA 1 -->
+    <div class="news-card">
+        <!-- TEXTO (Izquierda) -->
+        <div class="news-left">
+            <div class="news-date">📅 27/06/2026</div>
+            <div class="news-title">🎨 Colores estratégicos a Clientes</div>
+            <div class="news-desc">
+                <ul style="margin: 0; padding-left: 16px;">
+                    <li><b>Verde:</b> Cliente conectados.</li>
+                    <li><b>Naranja:</b> Cliente de ayer.</li>
+                    <li><b>Azul Marino:</b> Cliente mora 1.</li>
+                    <li><b>Para visualizar los numeros: </b> Se tiene que extraer primero los correos</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- IMÁGENES (Derecha) -->
+        <div class="news-right">
+            <img class="media-content" src="https://i.imgur.com/8eJLlgM.png" alt="Imagen 1">
+            <img class="media-content" src="https://i.imgur.com/xBef6x9.png" alt="Imagen 2">
+            <div class="gallery-indicator">📸 2 Fotos</div>
+        </div>
+    </div>
+
+    <!-- TARJETA 2: FILTRO SEGUIMIENTO MASIVO -->
+    <div class="news-card">
+        <!-- TEXTO (Izquierda) -->
+        <div class="news-left">
+            <div class="news-date">📅 27/06/2026</div>
+            <div class="news-title">🔍 Nuevo Filtro: Seguimiento Masivo y Referencias</div>
+            <div class="news-desc">
+                <p style="margin: 0 0 8px 0;">
+                    Una vez filtrados los clientes estratégicos en la hoja de Google sheet para cliente gestión de mora, ahora pueden utilizar el nuevo espacio <b>FILTRO EXCEL / IDS</b>.
+                </p>
+                <ul style="margin: 0; padding-left: 16px;">
+                    <li>Pega directamente una <b>columna de teléfonos</b>.</li>
+                    <li>Al pegar los numeros en El sistema seleccionará automáticamente a los clientes exactos para realizar los <b>seguimientos masivos</b> dependiendo de tu selección SEGUIMIENTO O TITULAR O REFERENCIA 1 O 2..</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- MULTIMEDIA (Derecha) -->
+        <div class="news-right">
+            <!-- 1. VIDEO (Es el primer elemento, será la miniatura) -->
+            <video class="media-content" autoplay loop muted playsinline>
+                <source src="https://i.imgur.com/58bIMHc.mp4" type="video/mp4">
+            </video>
+            
+            <!-- 2. Imágenes ocultas para la galería -->
+            <img class="media-content" src="https://i.imgur.com/CYE4kXQ.png" alt="Filtro Seguimiento Masivo 1">
+            <img class="media-content" src="https://i.imgur.com/t9Q6y6S.png" alt="Filtro Seguimiento Masivo 2">
+            
+            <!-- Indicador adaptado -->
+            <div class="gallery-indicator">🎞️ + 📸 3 Items</div>
+        </div>
+    </div>
+
+    <!-- TARJETA 3: RASTREADOR DE SEGUIMIENTO CON VIDEO -->
+    <div class="news-card">
+        <!-- TEXTO (Izquierda) -->
+        <div class="news-left">
+            <div class="news-date">📅 27/06/2026</div>
+            <div class="news-title">📡 Nuevo: Rastreador de Seguimiento</div>
+            <div class="news-desc">
+                <p style="margin: 0 0 8px 0;">
+                    Nueva herramienta para escanear y organizar los seguimientos realizados durante el día.
+                </p>
+                <ul style="margin: 0; padding-left: 16px; margin-bottom: 10px;">
+                    <li>Al presionar <b>"Escanear ahora"</b>, el sistema buscará automáticamente los seguimientos hechos hoy por cada cliente.</li>
+                    <li><b>Filtro Dinámico:</b> Al darle <i>"Mostrar"</i> a un seguimiento específico, se filtrará la lista para ver solo a esos clientes. Al darle <i>"Ocultar"</i>, se esconderán y verás a los demás.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- MULTIMEDIA (Derecha) -->
+        <div class="news-right">
+            <!-- 1. VIDEO (Es el primer elemento, será la miniatura) -->
+            <video class="media-content" autoplay loop muted playsinline>
+                <source src="https://i.imgur.com/6Pi6YK9.mp4" type="video/mp4">
+            </video>
+            
+            <!-- 2. Imágenes ocultas para la galería -->
+            <img class="media-content" src="https://i.imgur.com/c1yjy2Y.png" alt="Rastreador 1">
+            <img class="media-content" src="https://i.imgur.com/yJqRXkq.png" alt="Rastreador 2">
+
+            <!-- Indicador de Galería adaptado -->
+            <div class="gallery-indicator">🎞️ + 📸 3 Items</div>
+        </div>
+    </div>
+
+</div>
